@@ -61,7 +61,7 @@ namespace Aplikacja.Views
         public async void Szczegoly(object s, EventArgs e)
         {
 
-            await Navigation.PushAsync(new Szczegoly((Lista.SelectedItem.Data) as Wydatek));
+            await Navigation.PushAsync(new Szczegoly((Lista.SelectedItem as Wydatek).Data));
 
         }
     }
