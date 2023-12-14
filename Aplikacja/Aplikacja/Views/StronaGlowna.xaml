@@ -6,19 +6,18 @@
 
     <ContentPage Title="Dodaj Wydatki">
         <StackLayout>
-            <Label FontSize="30" Margin="0,30,0,0" HorizontalOptions="CenterAndExpand" Text="(Nazwa aplikacji)"/>
-            <Label FontSize="15" Margin="30,0,30,0" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Text="Witaj w aplikacji słóżącej do zapisywania twoich wydatków"/>
+            <Label FontSize="15" Margin="30,20,30,0" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Text="Tutaj możesz zapisać swoje Wydatki"/>
 
-            <Frame>
+            <Frame Margin="20">
                 <StackLayout>
-                    <Label FontSize="13" HorizontalTextAlignment="Start" Margin="30,100,0,0" Text="Nazwa wydatku"/>
+                    <Label TextColor="Black" FontSize="13" HorizontalTextAlignment="Start" Margin="30,0,0,0" Text="Nazwa wydatku"/>
                     <Entry x:Name="Nazwa" FontSize="13" Margin="23,0,23,0"/>
-                    <Label FontSize="13" HorizontalTextAlignment="Start" Margin="30,20,0,0" Text="Kwota wydatku"/>
+                    <Label TextColor="Black" FontSize="13" HorizontalTextAlignment="Start" Margin="30,20,0,0" Text="Kwota wydatku"/>
                     <Entry x:Name="Kwota" FontSize="13" Margin="23,0,23,0"/>
-                    <Label FontSize="13" HorizontalTextAlignment="Start" Margin="30,20,0,0" Text="Data wydatku"/>
+                    <Label TextColor="Black" FontSize="13" HorizontalTextAlignment="Start" Margin="30,20,0,0" Text="Data wydatku"/>
                     <DatePicker x:Name="Data" FontSize="13" Margin="23,0,23,0"/>
 
-                    <Button Margin="60,0,60,0" Text="Dodaj Wydatek"/>
+                    <Button Clicked="Add" BackgroundColor="Transparent" BorderWidth="1" BorderColor="Black" CornerRadius="10" Margin="60,10,60,0" Text="Dodaj Wydatek"/>
                 </StackLayout>
             </Frame>
         </StackLayout>
@@ -26,13 +25,15 @@
 
     <ContentPage Title="Twoje Wydatki">
         <StackLayout>
-            <ListView x:Name="Lista" HasUnevenRows="True">
+            <ListView x:Name="Lista" HasUnevenRows="True" ItemTapped="Szczegoly">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Padding="10">
-                                <Label Text="{Binding Data}" FontAttributes="Bold"/>
-                            </StackLayout>
+                            <Frame Margin="20">
+                                <StackLayout Padding="10">
+                                    <Label Text="{Binding Data}" FontAttributes="Bold"/>
+                                </StackLayout>
+                            </Frame>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
