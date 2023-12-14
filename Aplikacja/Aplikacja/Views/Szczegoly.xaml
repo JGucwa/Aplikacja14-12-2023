@@ -4,9 +4,24 @@
              x:Class="Aplikacja.Views.Szczegoly">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <ListView x:Name="Lista" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame Margin="20">
+                                <StackLayout Padding="10">
+                                    <Label Text="Data :" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Data}"/>
+                                    <Label Text="Kwota :" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Kwota}"/>
+                                    <Label Text="Nazwa :" FontAttributes="Bold"/>
+                                    <Label Text="{Binding Nazwa}"/>
+                                </StackLayout>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

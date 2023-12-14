@@ -1,12 +1,42 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Aplikacja.Views.StronaGlowna">
-    <ContentPage.Content>
+             x:Class="Aplikacja.Views.StronaGlowna"
+             NavigationPage.HasNavigationBar="False">
+
+    <ContentPage Title="Dodaj Wydatki">
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Label FontSize="30" Margin="0,30,0,0" HorizontalOptions="CenterAndExpand" Text="(Nazwa aplikacji)"/>
+            <Label FontSize="15" Margin="30,0,30,0" HorizontalTextAlignment="Center" HorizontalOptions="CenterAndExpand" Text="Witaj w aplikacji słóżącej do zapisywania twoich wydatków"/>
+
+            <Frame>
+                <StackLayout>
+                    <Label FontSize="13" HorizontalTextAlignment="Start" Margin="30,100,0,0" Text="Nazwa wydatku"/>
+                    <Entry x:Name="Nazwa" FontSize="13" Margin="23,0,23,0"/>
+                    <Label FontSize="13" HorizontalTextAlignment="Start" Margin="30,20,0,0" Text="Kwota wydatku"/>
+                    <Entry x:Name="Kwota" FontSize="13" Margin="23,0,23,0"/>
+                    <Label FontSize="13" HorizontalTextAlignment="Start" Margin="30,20,0,0" Text="Data wydatku"/>
+                    <DatePicker x:Name="Data" FontSize="13" Margin="23,0,23,0"/>
+
+                    <Button Margin="60,0,60,0" Text="Dodaj Wydatek"/>
+                </StackLayout>
+            </Frame>
         </StackLayout>
-    </ContentPage.Content>
-</ContentPage>
+    </ContentPage>
+
+    <ContentPage Title="Twoje Wydatki">
+        <StackLayout>
+            <ListView x:Name="Lista" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10">
+                                <Label Text="{Binding Data}" FontAttributes="Bold"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage>
+</TabbedPage>
